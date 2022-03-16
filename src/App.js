@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Writers from './Writers'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Writers Profile</h1>
+      <div className="container">
+        {Writers.map((Writer) => (
+          <div key={Writer.id} className="card">
+            <img
+              src={`images/${Writer.avatar}.png`}
+              height="300px"
+              width="300px"
+              alt={Writer.img}
+            />
+            <div className="textGroup">
+              <h3>{Writer.name}</h3>
+              <p>{Writer.email}</p>
+              <p>{Writer.phone}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
